@@ -1,0 +1,12 @@
+*/Descarga de CLI kubectl, ocs, ROSA
+ wget https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/rosa/latest/rosa-linux.tar.gz;tar zxvf rosa-linux.tar.gz;export PATH=~:$PATH;rosa download oc; tar zxvf openshift-client-linux.tar.gz;rm openshift-client-linux.tar.gz rosa-linux.tar.gz README.md
+
+
+*/Comandos de login de token conseguidos desde https://console.redhat.com/openshift/token/show#
+rosa login; rosa whoami; rosa verify quota
+
+/* Crear roles de cuenta (solo se hace la 1ra vez)
+rosa create account-roles --mode auto --yes
+
+/* Creación de cluster ROSA
+rosa create cluster --cluster-name rosaSWO --sts --mode auto --yes --version 4.8.17
