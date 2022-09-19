@@ -1,4 +1,4 @@
-*/Descarga de CLI kubectl, ocs, ROSA
+*/Descarga de CLI kubectl, ocs, ROSA /*
  wget https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/rosa/latest/rosa-linux.tar.gz;tar zxvf rosa-linux.tar.gz;export PATH=~:$PATH;rosa download oc; tar zxvf openshift-client-linux.tar.gz;rm openshift-client-linux.tar.gz rosa-linux.tar.gz README.md
 
 
@@ -10,3 +10,20 @@ rosa create account-roles --mode auto --yes
 
 /* Creación de cluster ROSA
 rosa create cluster --cluster-name rosaSWO --sts --mode auto --yes --version 4.8.17
+
+/* Revision del estatus de la instalación
+rosa list clusters
+rosa describe cluster --cluster rosaSWO
+rosa logs install -c rosaSWO --watch
+
+
+/* Creación de usuario administrador */
+
+/* Comando para crear usuario administrado
+rosa create admin --cluster=rosaSWO
+
+/* Copiar comando de login desde URL de oc
+oc login
+
+/* Verificar la informarción del cluster
+oc cluster-info; oc get nodes
